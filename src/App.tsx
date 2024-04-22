@@ -1,24 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Start from "./screens/Start";
+
+type TScreen = "start" | "question_1" | "question_2" | "question_3" | "finish";
 
 function App() {
+  const [currentScreen, setCurrentScreen] = useState<TScreen>("start");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App flex">
+      {currentScreen === "start" ? <Start /> : <></>}
     </div>
   );
 }
