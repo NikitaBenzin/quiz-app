@@ -1,14 +1,23 @@
 import { FC } from "react";
 import Button from "../ui/Button";
+import Heading from "../ui/Heading";
 
-// interface ICb {}
+interface IStart {
+  cb: () => void;
+}
 
-const Start: FC = () => {
+const Start: FC<IStart> = ({ cb }) => {
   return (
-    <div>
-      <h1>QUIZ: Which country is it?</h1>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
+      <Heading title="QUIZ: Which country is it?" />
 
-      <Button>Start</Button>
+      <Button onClick={() => cb()}>Start</Button>
     </div>
   );
 };
